@@ -1,35 +1,18 @@
 """
-Programa para verficar a integridade de algo.
+Programa para verficar a integridade de algo, utilizando o SHA512.
 """
-from os import pipe
-import sys
-from Crypto.Hash import SHA512
+import sys # Importação da biblioteca de sistema, para pegar os argumentos do stdin
+from Crypto.Hash import SHA512 # Importação das funções de SHA512 da biblioteca Hash de dentro do PyCryptodome
 
-def GetHash(caminho):
-    arquivo = open(caminho,'rb')
-    h = SHA512.new()
-    h.update(arquivo.read())
-    arquivo.close()
-    return h.hexdigest()
+def GetHash(caminho): # Função que retorna o hash de um arquivo
+    arquivo = open(caminho,'rb') # Lê os binarios do arquivo e salva na memoria
+    hash = SHA512.new() # Cria um hash SHA512 vazio
+    hash.update(arquivo.read()) # Lê o arquivo na memoria e atualiza o hash com o arquivo
+    arquivo.close() # Fecha o arquivo na memoria
+    return hash.hexdigest() # Retorna o hash pra quem chamou, já disgestado
 
-def Comparar():
-    print()
+a = sys.argv # Pega os argumentos recebidos no stdin
 
-def Help():
-    print("""
-uso: verificaIntegridade.py [arquivo] [SHA512]
-
-Programa para verificar a integridade de um arquivo.
-
-arquivo     Arquivo que você quer verificar o SHA512.
-SHA512      SHA512 do arquivo original que você já tem e quer usar para verificar a integridade do arquivo.
-""")
-
-def Iniciar(a):
-    if(len(a)<2):
-        Help()
-    else:
-        if(a[1] == '--c'):
-            print(GetHash(a[2]).upper())
-
-Iniciar(sys.argv)
+if(len(a)>1):
+    print(GetHash(a[1]).upper()) # 
+#
