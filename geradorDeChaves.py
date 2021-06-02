@@ -1,5 +1,6 @@
 from Crypto.PublicKey import RSA
 import sys
+from getpass import getpass
 
 def CriarParDeChaves(tamanho=2048,senha=None):
     """
@@ -10,7 +11,6 @@ def CriarParDeChaves(tamanho=2048,senha=None):
     """
     global chavePrivada
     global chavePublica
-    #global chave
 
     chave = RSA.generate(tamanho)
     chavePrivada = chave.export_key('OpenSSH',passphrase=senha)
@@ -47,19 +47,13 @@ def GerarArquivo(s):
     print("'chavePrivada.pem' e 'chavePublica.pem' foram gerados no dirétorio atual.")
 
 def Iniciar():
-    #if(argumento == "-i" and (senha is not None)):
-    #    print(argumento,senha)
-    #else:
     Main()
-
-
 
 def Main():
     print("Bem vindo ao gerador de chaves.")
-    senha = input("Digite a senha que você quer usar na chave privada: ")
+    #senha = input("Digite a senha que você quer usar na chave privada: ")
+    senha = getpass("Digite a senha que você quer usar na chave privada:\n")
     GerarArquivo(senha)
-
-
 
 if(len(sys.argv)>1):
     argumento = sys.argv[1]
