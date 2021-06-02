@@ -1,7 +1,7 @@
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import AES, PKCS1_OAEP
-
+from sys import argv
 def Encriptar(arquivosPraEncriptar,caminhoChave,caminho):
     """
     -
@@ -40,3 +40,8 @@ def Encriptar(arquivosPraEncriptar,caminhoChave,caminho):
 
     temp.close()
     # Apaga o arquivo da memoria
+
+if(len(argv)>1):
+    Encriptar(argv[1],argv[2],argv[3])
+else:
+    print("Você deve passar os arquivos como argumento.\nEXEMPLO:\nencriptar.py caminhoArquvivoParaEncriptar caminhoDaChave caminhoDaSaida")
