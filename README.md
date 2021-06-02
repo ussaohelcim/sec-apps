@@ -32,13 +32,24 @@ Faça o teste da biblioteca para checar se não existe nenhum problema:
 python3 -m Crypto.SelfTest
 ```
 ## Utilizando o verificador de integridade
+
 ```python
 python3 verificaIntegridade.py arquivo
 #0123456789ABCDEF -- a saida será o hash SHA512 do arquivo
 ```
 
 ## Utilizando o gerador de chaves
+
 ```python
 python3 geradorDeChaves.py
-#
+#'chavePrivada.pem' e 'chavePublica.pem' foram gerados no dirétorio atual.
+# -- será gerado o par de chaves.
+```
+
+## Utilizando o encriptador
+
+```python
+python3 encriptar.py exemplo.txt chavePrivada.pem encriptado.txt
+# encriptado.txt foi gerado.
+# -- será gerado o arquivo encriptado.txt.
 ```
