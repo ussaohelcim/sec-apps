@@ -1,1 +1,2 @@
-Olá, esse é um texto de exemplo!
+Ola, esse eh um texto de exemplo!
+So isso mesmo, tchau!
