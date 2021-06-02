@@ -2,7 +2,8 @@ from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import AES, PKCS1_OAEP
 from sys import argv
-def Encriptar(arquivosPraEncriptar,caminhoChave,caminho):
+
+def Encriptar(arquivoPraEncriptar,caminhoChave,caminho):
     """
     -
     
@@ -11,7 +12,9 @@ def Encriptar(arquivosPraEncriptar,caminhoChave,caminho):
     caminhoChave: caminho onde se encontra a chave
     caminho: caminho onde vai salvar o arquivo
     """
-    texto = str(arquivosPraEncriptar).encode("utf-8")
+    a =  open(arquivoPraEncriptar)
+    texto = str(a.read()).encode("utf-8")
+    a.close()
     # Texto a ser encriptado, transformado em bytes
 
     temp = open(caminho,"wb")
@@ -40,6 +43,8 @@ def Encriptar(arquivosPraEncriptar,caminhoChave,caminho):
 
     temp.close()
     # Apaga o arquivo da memoria
+    
+    print(caminho+" foi gerado.")
 
 if(len(argv)>1):
     Encriptar(argv[1],argv[2],argv[3])
