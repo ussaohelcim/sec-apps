@@ -13,8 +13,8 @@ def CriarParDeChaves(tamanho=2048,senha=None):
     global chavePublica
 
     chave = RSA.generate(tamanho)
-    chavePrivada = chave.export_key('OpenSSH',passphrase=senha)
-    chavePublica = chave.public_key().export_key('OpenSSH')
+    chavePrivada = chave.export_key('PEM',passphrase=senha)
+    chavePublica = chave.public_key().export_key('PEM')
 
 def GetChavePrivada():
     """
