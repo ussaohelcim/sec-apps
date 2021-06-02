@@ -11,7 +11,6 @@ Aplicações de segurança em Python para demonstração da biblioteca PyCryptod
 - programa para verificar a integridade de um arquivo utilizando SHA512
 - programa para gerar chaves publicas e privadas
 - programa para encriptar ou decriptar arquivo usando chave publica e privada
-- programa para gerenciar senhas de forma segura
 
 ## Informações
 Este repositorio foi feito para ser demonstrado em um seminário, na disciplina de criptografia, da Fatec São Caetano do Sul.
